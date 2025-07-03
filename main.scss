@@ -1,1 +1,142 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
 
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.person {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: all 1s ease;
+  border-radius: 12px;
+  
+  .photo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    transition: all 1s ease;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .rank {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+      background-color: #FFFFFF;
+      color: #8B0000;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  
+  .details {
+    .name {
+      font-weight: 700;
+      font-size: 20px;
+      color: #333;
+      text-decoration: none;
+      &:hover {
+        color: #007bff;
+      }
+    }
+    
+    .extra {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      color: #777;
+      margin-top: 5px;
+      justify-content: center;
+      
+      .sport {
+        margin: 0;
+      }
+      
+      .pay {
+        white-space: nowrap;
+        
+        &::before {
+          content: "$";
+        }
+        &::after {
+          content: "M";
+        }
+      }
+    }
+  }
+  
+  &:hover {
+    background-color: #EEEEEE;
+    transform: scale(1);
+    z-index: 100;
+    
+    .photo {
+      border-radius: 60px;
+      width: 240px;
+      height: 240px;
+    }
+    
+    .details {
+      .extra {
+        display: flex;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 500px) {
+  .people {
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 750px) {
+  .people {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .people {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .people {
+    max-width: 1000px;
+  }
+}
